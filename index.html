@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const root = document.getElementById("root");
+    const h3 = React.createElement(
+      "h2",
+      {
+        id: "title",
+        onMouseEnter: () => console.log("mouser enter"),
+      },
+      "Hello I'm a span"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("im clicked"),
+      },
+      "Click me"
+    );
+    const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root);
 
-</body>
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script>
-
-
-</script>
+    //JS가 element를 생성하고 React JS가 그것을 HTML로 번역
+  </script>
 </html>

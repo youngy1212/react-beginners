@@ -11,17 +11,27 @@
   <script src=https://unpkg.com/@babel/standalone/babel.min.js></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = (
+    const Title = () => (
       <h3 id="title" onMouseEnter={() => console.log("mouser enter")}>
         Hello I'm title
       </h3>
     );
-    const btn = (
+    const Button = () => (
       <button onClick={() => console.log("im clicked")}>Click me</button>
     );
 
-    const container = React.createElement("div", null, [Title, btn]);
-    ReactDOM.render(container, root);
+
+    // div에 const 넣기 위해선  const를 함수로 만들어 줘야함 const Btn = () => ( ); -> arrow function 이라고 부름
+    //2. HTML 태그처럼 만들어서 넣어줌
+    // (중요) 컴포넌트의 첫 글자는 반드시 대문자여야 함
+
+    const Container = ()=> (
+      <div>
+        <Title /> 
+        <Button />
+      </div>
+    );
+    ReactDOM.render(<Container />, root);
 
     //JS가 element를 생성하고 React JS가 그것을 HTML로 번역
   </script>

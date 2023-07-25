@@ -11,23 +11,25 @@
   <script src=https://unpkg.com/@babel/standalone/babel.min.js></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function countUp(){
-      counter = counter + 1;
-      render();
-    }
-    function render(){
-      ReactDOM.render(<Container/>, root);
-    }
+    function App(){
+      const [counter, setCounter] =  React.useState(0);
+      //[0, ƒ] 초기값 / function 바꾸는 함수
+      const onClick = () => {
+        //리랜더링이 자동으로 이루어짐
+        setCounter(counter+1);
+      };
 
-    const Container = () => (
-      <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
-      </div>
-    );
-
-    render();
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
+    }
+   
+  
+    ReactDOM.render(<App />, root);
+   
    
 
     //JS가 element를 생성하고 React JS가 그것을 HTML로 번역
